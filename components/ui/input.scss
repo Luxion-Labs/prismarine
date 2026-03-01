@@ -1,0 +1,59 @@
+@use "../../styles/abstracts/variables" as *;
+@use "../../styles/abstracts/mixins" as *;
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.input-label {
+  font-size: $font-size-sm;
+  font-weight: 500;
+  color: $color-fg-secondary;
+}
+
+.input {
+  padding: $spacing-sm $spacing-md;
+  font-size: $font-size-base;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  background-color: $color-bg-secondary;
+  color: $color-fg-primary;
+  @include smooth-transition;
+
+  &::placeholder {
+    color: $color-fg-tertiary;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $color-accent;
+    box-shadow: 0 0 0 2px rgba($color-accent, 0.1);
+  }
+
+  &:disabled {
+    background-color: $color-bg-tertiary;
+    color: $color-fg-tertiary;
+    cursor: not-allowed;
+  }
+
+  &--error {
+    border-color: $color-error;
+
+    &:focus {
+      border-color: $color-error;
+      box-shadow: 0 0 0 2px rgba($color-error, 0.1);
+    }
+  }
+}
+
+.input-error {
+  font-size: $font-size-sm;
+  color: $color-error;
+}
+
+.input-helper {
+  font-size: $font-size-sm;
+  color: $color-fg-tertiary;
+}

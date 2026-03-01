@@ -1,0 +1,76 @@
+@use "../../styles/abstracts/variables" as *;
+@use "../../styles/abstracts/mixins" as *;
+
+.button {
+  @include button-reset;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  border-radius: $radius-md;
+  @include smooth-transition;
+
+  &:hover:not(:disabled) {
+    opacity: 0.9;
+  }
+
+  &:active:not(:disabled) {
+    opacity: 0.8;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  // Variants
+  &--primary {
+    background-color: $color-accent;
+    color: $color-fg-primary;
+
+    &:hover:not(:disabled) {
+      background-color: $color-accent-hover;
+    }
+
+    &:active:not(:disabled) {
+      background-color: $color-accent-active;
+    }
+  }
+
+  &--secondary {
+    background-color: $color-bg-tertiary;
+    color: $color-fg-primary;
+    border: 1px solid $color-border;
+
+    &:hover:not(:disabled) {
+      background-color: $color-bg-secondary;
+      border-color: $color-border-light;
+    }
+  }
+
+  &--ghost {
+    color: $color-fg-secondary;
+    background-color: transparent;
+
+    &:hover:not(:disabled) {
+      background-color: $color-bg-tertiary;
+      color: $color-fg-primary;
+    }
+  }
+
+  // Sizes
+  &--sm {
+    padding: 0.375rem 0.75rem;
+    font-size: $font-size-sm;
+  }
+
+  &--md {
+    padding: 0.5rem 1rem;
+    font-size: $font-size-base;
+  }
+
+  &--lg {
+    padding: 0.75rem 1.5rem;
+    font-size: $font-size-lg;
+  }
+}

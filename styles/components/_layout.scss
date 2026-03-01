@@ -1,0 +1,93 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.shell {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  background-color: $color-bg-primary;
+}
+
+.sidebar {
+  width: $sidebar-width;
+  background-color: $color-bg-secondary;
+  border-right: 1px solid $color-border;
+  overflow-y: auto;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    padding: $spacing-md;
+    border-bottom: 1px solid $color-border;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: $topbar-height;
+  }
+
+  &__nav {
+    flex: 1;
+    padding: $spacing-md 0;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    padding: $spacing-sm $spacing-lg;
+    color: $color-fg-secondary;
+    text-decoration: none;
+    transition: all $transition-base;
+    border-left: 3px solid transparent;
+
+    &:hover {
+      background-color: $color-bg-tertiary;
+      color: $color-fg-primary;
+    }
+
+    &--active {
+      background-color: $color-bg-tertiary;
+      color: $color-accent;
+      border-left-color: $color-accent;
+    }
+  }
+
+  &__footer {
+    padding: $spacing-md;
+    border-top: 1px solid $color-border;
+  }
+}
+
+.topbar {
+  height: $topbar-height;
+  background-color: $color-bg-secondary;
+  border-bottom: 1px solid $color-border;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 $spacing-lg;
+  flex-shrink: 0;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  &__header {
+    height: $topbar-height;
+    border-bottom: 1px solid $color-border;
+    display: flex;
+    align-items: center;
+    padding: 0 $spacing-lg;
+    background-color: $color-bg-secondary;
+    flex-shrink: 0;
+  }
+
+  &__body {
+    flex: 1;
+    overflow-y: auto;
+    padding: $spacing-lg;
+  }
+}
